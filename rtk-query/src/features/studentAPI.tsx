@@ -16,8 +16,8 @@ export const studentApi = createApi({
         // if (args === 2) {
         //   return response.slice(0, 4);
         // }
-        return response.slice(0,2)
-        // return response;
+        // return response.slice(0,2)
+        return response;
       },
     }),
     getStudentById: builder.query<Student, string>({
@@ -30,7 +30,7 @@ export const studentApi = createApi({
         method: "POST",
         body: student,
       }),
-      invalidatesTags: ["Student"],
+      // invalidatesTags: ["Student"],
     }),
     deleteStudent: builder.mutation<void, string>({
       query: (id) => ({

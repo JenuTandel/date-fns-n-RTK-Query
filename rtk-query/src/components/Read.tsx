@@ -17,8 +17,7 @@ const Read = () => {
 
   // console.log("e",isFetching);
   // console.log(isLoading);
-  
-  
+
   const [deleteStudent] = useDeleteStudentMutation();
 
   return (

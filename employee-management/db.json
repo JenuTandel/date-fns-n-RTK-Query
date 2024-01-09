@@ -1,0 +1,10 @@
+{
+  "EmployeeDetails": [
+    {
+      "id": 1,
+      "empName": "Jinal",
+      "empEmail": "jinal@gmail.com",
+      "empDesignation": "Associate Trainee"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "employeeDetails": [
+    {
+      "id": 1,
+      "empName": "Jinal",
+      "empEmail": "jinal.tandel@1rivet.com",
+      "empDesignation": "Associate Trainee"
+    },
+    {
+      "empName": "Sheetal",
+      "empEmail": "sheetal.patel@1rivet.com",
+      "empDesignation": "Associate L1",
+      "id": 2
+    },
+    {
+      "empName": "Hetal",
+      "empEmail": "hetal.vora@1rivet.com",
+      "empDesignation": "Associate L1",
+      "id": 3
+    },
+    {
+      "empName": "Ravi",
+      "empEmail": "ravi@gmail.com",
+      "empDesignation": "Associate L1",
+      "id": 4
+    },
+    {
+      "empName": "Jinu",
+      "empEmail": "sheetal.patel@1rivet.com",
+      "empDesignation": "Associate L1",
+      "id": 5
+    }
+  ]
+}
