@@ -42,10 +42,11 @@ export const employeeAPI = createApi({
     //Update Employee Data
     updateEmployee: builder.mutation<void, Employee>({
       query: ({ id, ...rest }) => ({
-        url: `/EmployeeDetails/${id}`,
+        url: `/employeeDetails/${id}`,
         method: "PUT",
         body: rest,
       }),
+      invalidatesTags: ["Employee"],
     }),
   }),
 });

@@ -1,10 +1,28 @@
+import { useGetEmployeesQuery } from "../features/employeeAPI";
+
 export const ReadData = () => {
+  const {
+    data: employee,
+    isLoading,
+    isSuccess,
+    error,
+    isError,
+  } = useGetEmployeesQuery();
+
+  //Early fetching
+  if (isLoading) {
+    return <p>Data Loading...</p>;
+  }
+
+  if (isError) {
+    return <p>Something Went Wrong</p>;
+  }
+
   return (
     <div className="p-4">
-      {/* {isLoading && <p>Data Loading...</p>} */}
-      <div className="grid grid-cols-3 gap-4">
-        {/* {isSuccess &&
-          employee?.map((emp:any) => (
+      {isSuccess && (
+        <div className="grid grid-cols-3 gap-4">
+          {employee?.map((emp: any) => (
             <div key={emp?.id} className="border rounded p-3">
               <p>{emp?.empName}</p>
               <p>{emp?.empEmail}</p>
@@ -15,16 +33,17 @@ export const ReadData = () => {
               >
                 Edit
               </button>
-              <button
+              {/* <button
                 type="button"
                 className="rounded-lg px-3 py-1 bg-red-600 text-white"
                 onClick={() => deleteEmployee(emp.id)}
               >
                 Delete
-              </button>
+              </button> */}
             </div>
-          ))} */}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

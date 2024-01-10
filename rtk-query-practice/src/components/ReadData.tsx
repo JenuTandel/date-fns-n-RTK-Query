@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import {
   useDeleteEmployeeMutation,
   useGetEmployeesQuery,
@@ -12,7 +13,7 @@ export const ReadData = () => {
       {isLoading && <p>Data Loading...</p>}
       <div className="grid grid-cols-3 gap-4">
         {isSuccess &&
-          employee?.map((emp:any) => (
+          employee?.map((emp: any) => (
             <div key={emp?.id} className="border rounded p-3">
               <p>{emp?.empName}</p>
               <p>{emp?.empEmail}</p>
@@ -21,7 +22,7 @@ export const ReadData = () => {
                 type="button"
                 className="rounded-lg px-4 py-1 bg-blue-500 text-white me-3"
               >
-                Edit
+                <NavLink to={`edit/${emp?.id}`}>Edit</NavLink>
               </button>
               <button
                 type="button"

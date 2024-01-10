@@ -67,6 +67,7 @@ export const EmployeeForm = () => {
             name="empName"
             placeholder="Employee Name"
             onChange={handleChange}
+            value={employee.empName || ""}
           />
         </div>
         {/* input field: employee Email */}
@@ -82,6 +83,7 @@ export const EmployeeForm = () => {
             name="empEmail"
             placeholder="Employee Email ID"
             onChange={handleChange}
+            value={employee.empEmail || ""}
           />
         </div>
         {/* input field: employee Designation */}
@@ -97,6 +99,7 @@ export const EmployeeForm = () => {
             name="empDesignation"
             placeholder="Employee Designation"
             onChange={handleChange}
+            value={employee.empDesignation || ""}
           />
         </div>
         <div className="flex items-center justify-between">
@@ -104,7 +107,7 @@ export const EmployeeForm = () => {
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit"
           >
-            Add
+            {editMode ? "Update" : "Add"}
           </button>
         </div>
       </form>
