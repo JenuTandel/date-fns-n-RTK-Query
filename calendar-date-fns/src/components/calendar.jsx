@@ -7,7 +7,6 @@ import {
   getDay,
   isEqual,
   isSameDay,
-  isSameMonth,
   isToday,
   parse,
   parseISO,
@@ -73,8 +72,8 @@ export default function Calendar() {
 
   // For the prev month
   function previousMonth() {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
-    setCurrentMonth(format(firstDayNextMonth, "MMM-yyyy"));
+    let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
+    setCurrentMonth(format(firstDayPrevMonth, "MMM-yyyy"));
   }
 
   // For the next month
@@ -147,12 +146,7 @@ export default function Calendar() {
                         "text-red-500",
                       !isEqual(day, selectedDay) &&
                         !isToday(day) &&
-                        isSameMonth(day, firstDayCurrentMonth) &&
-                        "text-gray-900",
-                      !isEqual(day, selectedDay) &&
-                        !isToday(day) &&
-                        !isSameMonth(day, firstDayCurrentMonth) &&
-                        "text-gray-400",
+                        "text-black",
                       isEqual(day, selectedDay) && isToday(day) && "bg-red-500",
                       isEqual(day, selectedDay) &&
                         !isToday(day) &&
@@ -163,9 +157,7 @@ export default function Calendar() {
                       "mx-auto flex h-8 w-8 items-center justify-center rounded-full"
                     )}
                   >
-                    <time dateTime={format(day, "yyyy-MM-dd")}>
-                      {format(day, "d")}
-                    </time>
+                    <time>{format(day, "d")}</time>
                   </button>
                   {/* For blue dots */}
                   <div className="w-1 h-1 mx-auto mt-1">
@@ -183,9 +175,7 @@ export default function Calendar() {
           {/* start: meeting section */}
           <section className="mt-12 md:mt-0 md:pl-14">
             <h2 className="font-semibold text-gray-900">
-              <time dateTime={format(selectedDay, "yyyy-MM-dd")}>
-                {format(selectedDay, "MMM dd, yyy")}
-              </time>
+              <time>{format(selectedDay, "MMM dd, yyy")}</time>
             </h2>
             <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
               {selectedDayMeetings.length > 0 ? (
@@ -220,13 +210,8 @@ function Meeting({ meeting }) {
       <div className="flex-auto">
         <p className="text-gray-900">{meeting.name}</p>
         <p className="mt-0.5">
-          <time dateTime={meeting.startDatetime}>
-            {format(startDateTime, "h:mm a")}
-          </time>{" "}
-          -{" "}
-          <time dateTime={meeting.endDatetime}>
-            {format(endDateTime, "h:mm a")}
-          </time>
+          <time>{format(startDateTime, "h:mm a")}</time> -{" "}
+          <time>{format(endDateTime, "h:mm a")}</time>
         </p>
       </div>
     </li>

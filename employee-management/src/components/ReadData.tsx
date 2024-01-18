@@ -7,7 +7,7 @@ export const ReadData = () => {
     isSuccess,
     error,
     isError,
-  } = useGetEmployeesQuery();
+  } = useGetEmployeesQuery("changes");
 
   //Early fetching
   if (isLoading) {

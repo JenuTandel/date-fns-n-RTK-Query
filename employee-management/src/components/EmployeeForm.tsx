@@ -1,8 +1,17 @@
 import { useState } from "react";
 import { Employee } from "../models/Employee.model";
+import {
+  useAddEmployeeMutation,
+  useGetEmployeesQuery,
+} from "../features/employeeAPI";
+import { useNavigate } from "react-router-dom";
 
 export const EmployeeForm = () => {
   const [employee, setEmployee] = useState<Employee>(Object);
+  const [addEmployee] = useAddEmployeeMutation();
+  // const { refetch } = useGetEmployeesQuery();
+
+  const navigate = useNavigate();
 
   // Input event
   const handleChange = (e: any) => {
@@ -12,8 +21,11 @@ export const EmployeeForm = () => {
   };
 
   // Click on submit button
-  const handleSubmit = () => {
-
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    addEmployee(employee);
+    navigate("/");
+    // refetch();
   };
 
   return (
